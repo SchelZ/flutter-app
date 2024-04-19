@@ -8,11 +8,6 @@ class grp {
   grp({required this.line, required this.point});
 }
 
-int poz(int x) {
-  if (x < 0){ x = -x; }
-  return x;
-} 
-
 class crd {   // trebuie definite valori 
   int? x;
   int? y;
@@ -25,11 +20,49 @@ class ordered {
   ordered({required this.orx, required this.ory});
 }
 
+int poz(int x) {
+  if (x < 0){ x = -x; }
+  return x;
+} 
+
+int? lne(String x) {
+  switch(x){
+    case '-':
+     return 1;
+    case '|':
+     return 2;
+    case '/':
+     return 3;
+    case '(':
+     return 4;
+  }
+}
+
+int? axis(String x){
+  switch(x){
+    case 't':
+      return 1;
+    case 'p':
+      return 2;
+    case 'v':
+      return 3;
+  }
+}
+
 
 void main() {
+  int n, i, j, ok = 0, nmx, nmy, u = 1, ok2 = 0, ok3 = 0;
+  int ofx,ofy;
+  int ciclica;
+  int all,other;
+  String axa1, axa2,cother;
   // runApp(const MyApp());
   // ordered.orx = 10;
-    List<ordered> g = List.generate(20, (index) => ordered(orx: 0, ory: 0));
-    g[0] = ordered(orx: 10, ory: 20);
-    print('g[0].orx: ${g[0].orx}, g[0].ory: ${g[0].ory}');
+  List<grp> g = List.generate(20, (index) => grp(line: "", point: false));    // grp g[20];
+  List<crd> cr = List.generate(20, (index) => crd(x: 0, y: 0));    // crd cr[20];
+
+  int cx = 0, cy = 0;
+  int px = 0, py = 0;
+
+  // print('g[0].orx: ${g[0].orx}, g[0].ory: ${g[0].ory}');
 }
